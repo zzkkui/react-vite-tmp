@@ -7,6 +7,7 @@ import { useAppSelector } from 'src/hooks/reduxStore'
 import { getOpenMenu, MenuType } from 'src/utils/menus'
 import CollapseBtn from './collapseBtn'
 import styles from './style/siderMenu.module.less'
+import classNames from 'classnames'
 
 const { Sider } = Layout
 
@@ -26,11 +27,11 @@ const { SubMenu } = Menu
 function MenuIcon(props: { icon: React.ReactNode }) {
   const { icon } = props
   return typeof icon === 'string' ? (
-    <span className={` ${styles.icon}`}>
-      <span className={`${icon} iconfont `}></span>
+    <span className={classNames(['align-middle', styles.icon])}>
+      <span className={classNames(['align-middle iconfont', icon])}></span>
     </span>
   ) : (
-    <span className={`${styles.icon}`}>{icon}</span>
+    <span className={classNames(['align-middle', styles.icon])}>{icon}</span>
   )
 }
 
@@ -80,7 +81,7 @@ const SiderMenu: FC<SiderMenuProps> = (props) => {
 
   return (
     <Sider width={216} collapsedWidth={60} theme="light" trigger={null} collapsed={collapsed} className={styles.sider}>
-      <div className={styles.menuWrapper}>
+      <div className={classNames(['h-full pb-10 overflow-auto'])}>
         <Menu
           mode="inline"
           //  defaultOpenKeys={['database']}
@@ -100,7 +101,7 @@ const SiderMenu: FC<SiderMenuProps> = (props) => {
                 title={
                   <span>
                     <MenuIcon icon={icon} />
-                    <span className={styles.subname}>{name}</span>
+                    <span className={classNames(['pl-2.5 align-middle', styles.subname])}>{name}</span>
                   </span>
                 }
               >
@@ -121,12 +122,12 @@ const SiderMenu: FC<SiderMenuProps> = (props) => {
                 {path === matchPath ? (
                   <span>
                     <MenuIcon icon={icon} />
-                    <span className={styles.menuname}>{name}</span>
+                    <span className={classNames(['pl-2.5 align-middle', styles.menuname])}>{name}</span>
                   </span>
                 ) : (
                   <Link to={path}>
                     <MenuIcon icon={icon} />
-                    <span className={styles.menuname}>{name}</span>
+                    <span className={classNames(['pl-2.5 align-middle', styles.menuname])}>{name}</span>
                   </Link>
                 )}
               </Menu.Item>

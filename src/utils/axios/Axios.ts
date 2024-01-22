@@ -62,7 +62,7 @@ export class VAxios {
     const axiosCanceler = new AxiosCanceler()
 
     // Request interceptor configuration processing
-    this.axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
+    this.axiosInstance.interceptors.request.use((config) => {
       // 取消请求 ignoreCancelToken 全局配置
       // @ts-ignore
       const { ignoreCancelToken } = config.requestOptions

@@ -6,6 +6,7 @@ import { useAppSelector } from 'src/hooks/reduxStore'
 import SiderMenu from './siderMenu'
 import RightHeader from './rightHeader'
 import styles from './style/layout.module.less'
+import classNames from 'classnames'
 
 const { Content } = Layout
 
@@ -34,9 +35,9 @@ function MainLayout(props: MainLayoutPropsType) {
   }, [matchPath])
 
   return (
-    <Layout className={styles.main}>
+    <Layout className={classNames(['w-full h-full', styles.main])}>
       <SiderMenu menus={menusRef.current} selectedMenu={selectedMenu} />
-      <Layout className={styles.siteLayout}>
+      <Layout className={classNames(['pl-5', styles.siteLayout])}>
         <RightHeader info={selectedMenu?.meta} />
         <Content>{props.children}</Content>
       </Layout>

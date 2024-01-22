@@ -1,90 +1,9 @@
-.breadCrumb {
-  .goBack {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .btnLine {
-    display: inline-block;
-    vertical-align: middle;
-    width: 1px;
-    height: 14px;
-    background: #979797;
-    margin: 0 10px;
-    margin: 0 8px;
-  }
-
-  .path {
-    display: inline-block;
-    vertical-align: middle;
-
-    .name {
-      color: #3c3c3c;
-      // vertical-align: middle;
-    }
-  }
-
-  .rightArrow {
-    display: inline-block;
-    padding: 0 5px;
-    font-size: 12px;
-    color: #3c3c3c;
-  }
-
-  :global {
-    .ant-btn {
-      padding: 0;
-    }
-  }
-}
-
 .breadcrumbWrapper {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-
-  &.hideSide {
-    padding-left: 50px;
-    height: 60px;
-  }
-
-  .btn {
-    font-size: 14px;
-    margin: 0 15px 0 0;
-    width: 50px;
-    line-height: 20px;
-    vertical-align: middle;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   .icon {
-    width: 3px;
-    height: 14px;
-    margin-right: 8px;
-    line-height: 20px;
-    vertical-align: middle;
     background: #5582f3;
   }
 
   .breadcrumb {
-    flex: 1;
-    // margin-top: -2px;
-    :global(.ant-breadcrumb) {
-      > span:first-child::before {
-        display: none;
-      }
-
-      > span {
-        vertical-align: middle;
-      }
-
-      > span:first-child {
-        color: #000;
-      }
-    }
-
     :global {
       .ant-breadcrumb {
         li {

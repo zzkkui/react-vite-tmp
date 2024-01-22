@@ -53,7 +53,5 @@
     "./types/**/*",
     "./build/**/*",
     "./mock/**/*",
-    "./.eslintrc.js",
-    "./vite.config.ts"
   ]
 }
