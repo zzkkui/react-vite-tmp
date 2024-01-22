@@ -4,6 +4,7 @@ import CusBreadCrumb from 'src/components/breadCrumb'
 import { CusRouteMeta } from 'src/route/routeConfig'
 import { useAppSelector } from 'src/hooks/reduxStore'
 import styles from './index.module.less'
+import classNames from 'classnames'
 
 const { Header } = Layout
 
@@ -21,11 +22,11 @@ const RightHeader = (props: RightHeaderProps) => {
 
   return (
     <Header style={{ display: hideHeader ? 'none' : 'block' }}>
-      <div className={styles.headerBox}>
+      <div className={classNames(['flex items-center h-12 border-b-x border-solid', styles.headerBox])}>
         {hideBreadcrumb ? (
           <>
-            <span className={styles.titleIcon} />
-            <span className={styles.title}>{title}</span>
+            <span className={classNames(['w-0.5 h-3 mr-2', styles.titleIcon])}></span>
+            <span className={classNames(['h-4 leading-4 font-semibold'])}>{title}</span>
           </>
         ) : (
           <CusBreadCrumb />
