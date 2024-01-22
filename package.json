@@ -1,0 +1,127 @@
+{
+  "name": "react-boa-vite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "zzkkui",
+  "license": "MIT",
+  "homepage": ".",
+  "scripts": {
+    "start": "npm run lint && vite",
+    "build": "vite build",
+    "analyze": "vite build -- --analyze",
+    "serve": "vite preview",
+    "lint": "concurrently \"npm run tsc\" \"npm run lint:script \" \"npm run lint:style\"",
+    "lint:fix": "concurrently \"npm run lint-fix:script \" \"npm run lint-fix:style\"",
+    "lint:script": "eslint --ext .tsx,.ts,.js,.jsx ./src",
+    "lint:style": "stylelint \"src/**/*.less\" --custom-syntax postcss-less",
+    "lint-fix:script": "npm run lint:script -- --fix",
+    "lint-fix:style": "npm run lint:style -- --fix",
+    "tsc": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "@reduxjs/toolkit": "1.9",
+    "ahooks": "^3.7.8",
+    "antd": "^5.12.6",
+    "axios": "^0.27.2",
+    "classnames": "^2.5.0",
+    "core-js": "^3.34.0",
+    "dayjs": "^1.11.10",
+    "lodash": "^4.17.21",
+    "normalize.css": "^8.0.1",
+    "qs": "^6.11.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.9",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.10.4",
+    "@types/qs": "^6.9.6",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "@types/react-redux": "^7.1.33",
+    "@types/react-router": "^5.1.12",
+    "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "@vitejs/plugin-legacy": "^5.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react-refresh": "^1.3.6",
+    "autoprefixer": "^10.4.16",
+    "body-parser": "^1.19.0",
+    "browserslist": "^4.22.2",
+    "chalk": "^5.3.0",
+    "chokidar": "^3.5.1",
+    "click-to-react-component": "^1.1.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "cz-customizable": "^7.0.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier-standard": "^4.0.1",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "less": "^4.2.0",
+    "lightningcss": "^1.22.1",
+    "lint-staged": "^15.2.0",
+    "mockjs": "^1.1.0",
+    "postcss-less": "^6.0.0",
+    "prettier": "^3.1.1",
+    "rollup-plugin-visualizer": "^5.12.0",
+    "stylelint": "^14.0.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
+    "typescript": "^5.3.3",
+    "unplugin-icons": "^0.18.1",
+    "vite": "^5.0.7",
+    "vite-aliases": "^0.11.3",
+    "vite-plugin-compression2": "^0.11.0",
+    "vite-plugin-dynamic-import": "^1.5.0",
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-imp": "^2.4.0",
+    "vite-plugin-mock": "^2.9.8",
+    "vite-plugin-purge-icons": "^0.10.0",
+    "vite-plugin-restart": "^0.4.0",
+    "vite-plugin-svg-icons": "^2.0.1"
+  },
+  "overrides": {
+    "@types/react": "^18.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "npm run lint:script",
+      "prettier .prettierrc.js --write"
+    ],
+    "*.{less}": [
+      "npm run lint:style"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "ie >= 11",
+      "chrome >= 49",
+      "Firefox ESR",
+      "Firefox >= 20"
+    ]
+  }
+}
